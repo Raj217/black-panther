@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+:root {
+    --x: calc(50% - 18vw);
+    --y: calc(50%);
+    --size: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: 'Lato', sans-serif;
+}
+.bg {
+    background: #000;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+}
+img {
+    height: 100vh;
+}
+#timer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 30px;
+}
+.mask {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 50px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    mask-image: radial-gradient(var(--size) circle at var(--x) var(--y), black, rgba(0, 0, 0, 0.1), transparent);
+    -webkit-mask-image: radial-gradient(var(--size) circle at var(--x) var(--y), black, rgba(0, 0, 0, 0.1), transparent);
+}
+h2 {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    margin: auto;
+    font-size: 2rem;
+    color: transparent;
+  }
+h2.text-active:before{
+    content: attr(data-text);
+    color: white;
+    position: absolute;
+    width: 0;
+    margin: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid white;
+    animation: animate 6s ease-in-out 2;
+    background: linear-gradient(to right, #ef10c4, #30d4d8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @keyframes animate {
+      0%,10%,100% {
+          width: 0;
+      }
+    70%, 90% {
+      width: 100%;
+    }
+  }
